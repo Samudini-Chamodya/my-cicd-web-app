@@ -3,7 +3,7 @@
 > **A complete CI/CD pipeline showcasing modern DevOps practices with AWS services, automatic deployments, and zero-downtime updates.**
 
 
-## 🎯 Overview
+##  Overview
 
 This project demonstrates a **fully automated CI/CD pipeline** that:
 
@@ -22,6 +22,24 @@ This project demonstrates a **fully automated CI/CD pipeline** that:
 - **Security**: IAM roles with least privilege access
 - **Cost-Effective**: Pay-per-use AWS services
 
+##  Architecture
+
+```mermaid
+graph LR
+    A[👨‍💻 Developer] --> B[📝 VS Code]
+    B --> C[🔄 Git Commit]
+    C --> D[📚 GitHub Repository]
+    D --> E[🔗 AWS CodePipeline]
+    E --> F[🔨 AWS CodeBuild]
+    F --> G[🪣 S3 Bucket]
+    G --> H[🌐 Static Website]
+    
+    style A fill:#e1f5fe
+    style E fill:#fff3e0
+    style F fill:#fff3e0
+    style G fill:#e8f5e8
+    style H fill:#f3e5f5
+```
 
 ### Pipeline Stages
 
@@ -51,7 +69,7 @@ Before setting up this pipeline, ensure you have:
 - [x] **AWS CLI** configured (optional but recommended)
 - [x] **Node.js** (if using npm packages)
 
-##  Setup Guide
+## 🚀 Setup Guide
 
 ### Repository Setup
 
@@ -72,15 +90,17 @@ code .
 **📸 Screenshot Placeholder: S3 Bucket Creation**
 ![S3 Bucket Creation](screenshots/01-s3-bucket.png)
 
+
 1. Create S3 bucket with unique name
 2. Enable static website hosting
 3. Configure bucket policy for public access
 4. Set index.html as default document
 
-### AWS CodeBuild Project
+### Step 3: AWS CodeBuild Project
 
 **📸 Screenshot Placeholder: CodeBuild Project Setup**
-![CodeBuild Project Setup](screenshots/07-codebuild-page.png)
+![Codebuild Project](screenshots/03-codebuild-project-setup.png)
+
 
 Create `buildspec.yml` in your repository root:
 
@@ -110,6 +130,14 @@ artifacts:
   base-directory: '.'
 ```
 
+### AWS CodePipeline Setup
+
+**📸 Screenshot Placeholder: CodePipeline Configuration**
+![Codepipeline](screenshots/07-codebuild-page.png)
+
+1. **Source Stage**: Connect to GitHub repository
+2. **Build Stage**: Link to CodeBuild project
+3. **Deploy Stage**: Configure S3 deployment
 
 
 ## 🔄 Pipeline Workflow
@@ -144,24 +172,18 @@ sequenceDiagram
 
 ### Development Environment
 **📸 Screenshot Placeholder: VS Code Terminal**
-![VS Code Terminal](screenshots/10.update-push.png)
-
-### Pipeline Dashboard
-**📸 Screenshot Placeholder: CodePipeline Dashboard**
-![CodePipeine Dashboard](screenshots/03-codebuild-project-setup.png)
+![VS Code terminal](screenshots/10-update-push.png)
 
 
-### Live Website before any changes
-**📸 Screenshot Placeholder: S3 Hosted Website**
-![website ](screenshots/10-live demo.png)
+### Live Website
+**📸 Screenshot Placeholder: Live Web app before any changes**
+![live demo](screenshots/10-live demo.png)
 
+### Live Website
+**📸 Screenshot Placeholder: Live Web app after changes**
+![live demo](screenshots/11-live demo2.png)
 
-### Live Website after changes
-**📸 Screenshot Placeholder: S3 Hosted Website**
-![website](screenshots/11-live demo2.png)
-
-
-## ⚙️ Pipeline Configuration
+## Pipeline Configuration
 
 ### Environment Variables
 
@@ -202,6 +224,14 @@ sequenceDiagram
 7. **Cache Invalidation**: Clear CDN cache (if using CloudFront)
 
 
+### Common Issues and Solutions
+
+| Issue | Cause | Solution |
+|-------|-------|----------|
+| **Pipeline fails at Build** | Permission errors | Check CodeBuild IAM role permissions |
+| **403 Forbidden on website** | S3 bucket policy | Update bucket policy for public access |
+| **Pipeline not triggering** | GitHub webhook issues | Verify AWS Connector installation |
+| **Build succeeds but no deployment** | Artifact configuration | Check buildspec.yml artifacts section |
 
 ### Debug Commands
 
@@ -216,7 +246,7 @@ aws codebuild batch-get-builds --ids your-build-id
 aws s3 ls s3://your-bucket-name
 ```
 
-## 🏆 Best Practices
+##  Best Practices
 
 ### Security
 - ✅ Use IAM roles with least privilege principle
@@ -237,7 +267,7 @@ aws s3 ls s3://your-bucket-name
 - ✅ Regular pipeline performance reviews
 
 
-##  Future Enhancements
+## Future Enhancements
 
 - [ ] **Multi-environment deployments** (dev, staging, prod)
 - [ ] **Blue-green deployment strategy**
@@ -247,21 +277,14 @@ aws s3 ls s3://your-bucket-name
 - [ ] **Slack/Teams notifications**
 - [ ] **Infrastructure as Code** with CloudFormation
 
-## 🤝 Contributing
+##  Contributing
 
 1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
 3. Commit your changes (`git commit -m 'Add amazing feature'`)
 4. Push to the branch (`git push origin feature/amazing-feature`)
 
 
 
-- 📧 **Email**: samudinirupasinha@gmail.com.com
-
-## 🙏 Acknowledgments
-
-- AWS Documentation and tutorials
-- DevOps community best practices
-- Open source contributors
-
----
+- 📧 **Email**: samudinirupasinha@gmail.com
 
