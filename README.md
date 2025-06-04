@@ -70,7 +70,7 @@ code .
 ### AWS S3 Configuration
 
 **📸 Screenshot Placeholder: S3 Bucket Creation**
-+ ![S3 Bucket Creation](screenshots/01-s3-bucket.png)
++ ![S3 Bucket Creation](Screenshots/01-s3-bucket.png)
 
 
 1. Create S3 bucket with unique name
@@ -81,7 +81,7 @@ code .
 ### Step 3: AWS CodeBuild Project
 
 **📸 Screenshot Placeholder: CodeBuild Project Setup**
-+ ![Codebuild Project](screenshots/03-codebuild-project-setup.png)
++ ![Codebuild Project](Screenshots/03-codebuild-project-setup.png)
 
 
 Create `buildspec.yml` in your repository root:
@@ -115,7 +115,7 @@ artifacts:
 ### AWS CodePipeline Setup
 
 **📸 Screenshot Placeholder: CodePipeline Configuration**
-+ ![Codepipeline](screenshots/07-codebuild-page.png)
++ ![Codepipeline](Screenshots/07-codebuild-page.png)
 
 1. **Source Stage**: Connect to GitHub repository
 2. **Build Stage**: Link to CodeBuild project
@@ -148,22 +148,22 @@ sequenceDiagram
 ### Real-time Pipeline Monitoring
 
 **📸 Screenshot Placeholder: Pipeline Execution**
-+ ![Pipeline Execution](screenshots/09-pipeline-execution-success.png)
++ ![Pipeline Execution](Screenshots/09-pipeline-execution-success.png)
 
 ## 📸 Screenshots
 
 ### Development Environment
 **📸 Screenshot Placeholder: VS Code Terminal**
-+ ![VS Code terminal](screenshots/10-update-push.png)
++ ![VS Code terminal](Screenshots/10-update-push.png)
 
 
 ### Live Website
 **📸 Screenshot Placeholder: Live Web app before any changes**
-+ ![live demo](screenshots/10-live-demo.png)
++ ![live demo](Screenshots/10-live-demo.png)
 
 ### Live Website
 **📸 Screenshot Placeholder: Live Web app after changes**
-+ ![live demo](screenshots/11-live-demo2.png)
++ ![live demo](Screenshots/11-live-demo2.png)
 
 ## Pipeline Configuration
 
