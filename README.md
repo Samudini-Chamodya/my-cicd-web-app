@@ -1,9 +1,5 @@
 #  Automated CI/CD Pipeline with AWS
 
-[![Build Status](https://img.shields.io/badge/build-passing-brightgreen)](https://github.com/yourusername/your-repo)
-[![AWS](https://img.shields.io/badge/AWS-CodePipeline-orange)](https://aws.amazon.com/codepipeline/)
-[![Deployment](https://img.shields.io/badge/deployment-automated-blue)](https://your-s3-website-url.com)
-
 > **A complete CI/CD pipeline showcasing modern DevOps practices with AWS services, automatic deployments, and zero-downtime updates.**
 
 
@@ -26,24 +22,6 @@ This project demonstrates a **fully automated CI/CD pipeline** that:
 - **Security**: IAM roles with least privilege access
 - **Cost-Effective**: Pay-per-use AWS services
 
-## 🏗️ Architecture
-
-```mermaid
-graph LR
-    A[👨‍💻 Developer] --> B[📝 VS Code]
-    B --> C[🔄 Git Commit]
-    C --> D[📚 GitHub Repository]
-    D --> E[🔗 AWS CodePipeline]
-    E --> F[🔨 AWS CodeBuild]
-    F --> G[🪣 S3 Bucket]
-    G --> H[🌐 Static Website]
-    
-    style A fill:#e1f5fe
-    style E fill:#fff3e0
-    style F fill:#fff3e0
-    style G fill:#e8f5e8
-    style H fill:#f3e5f5
-```
 
 ### Pipeline Stages
 
@@ -51,7 +29,7 @@ graph LR
 2. **Build Stage**: AWS CodeBuild compilation and testing
 3. **Deploy Stage**: Automated deployment to S3 static hosting
 
-## 🛠️ Technologies Used
+##  Technologies Used
 
 | Category | Technology | Purpose |
 |----------|------------|---------|
@@ -63,7 +41,7 @@ graph LR
 | **Hosting** | AWS S3 | Static website hosting |
 | **Infrastructure** | AWS IAM | Security and access management |
 
-## 📋 Prerequisites
+##  Prerequisites
 
 Before setting up this pipeline, ensure you have:
 
@@ -73,9 +51,9 @@ Before setting up this pipeline, ensure you have:
 - [x] **AWS CLI** configured (optional but recommended)
 - [x] **Node.js** (if using npm packages)
 
-## 🚀 Setup Guide
+##  Setup Guide
 
-### Step 1: Repository Setup
+### Repository Setup
 
 ```bash
 # Clone the repository
@@ -89,20 +67,20 @@ npm install
 code .
 ```
 
-### Step 2: AWS S3 Configuration
+### AWS S3 Configuration
 
 **📸 Screenshot Placeholder: S3 Bucket Creation**
-> *[Insert screenshot of S3 bucket creation with static website hosting enabled]*
+![S3 Bucket Creation](screenshots/01-s3-bucket.png)
 
 1. Create S3 bucket with unique name
 2. Enable static website hosting
 3. Configure bucket policy for public access
 4. Set index.html as default document
 
-### Step 3: AWS CodeBuild Project
+### AWS CodeBuild Project
 
 **📸 Screenshot Placeholder: CodeBuild Project Setup**
-> *[Insert screenshot of CodeBuild project configuration]*
+![CodeBuild Project Setup](screenshots/07-codebuild-page.png)
 
 Create `buildspec.yml` in your repository root:
 
@@ -132,23 +110,7 @@ artifacts:
   base-directory: '.'
 ```
 
-### Step 4: AWS CodePipeline Setup
 
-**📸 Screenshot Placeholder: CodePipeline Configuration**
-> *[Insert screenshot of CodePipeline stages configuration]*
-
-1. **Source Stage**: Connect to GitHub repository
-2. **Build Stage**: Link to CodeBuild project
-3. **Deploy Stage**: Configure S3 deployment
-
-### Step 5: GitHub Integration
-
-**📸 Screenshot Placeholder: GitHub AWS Connector**
-> *[Insert screenshot of GitHub Apps AWS Connector installation]*
-
-- Install AWS Connector for GitHub
-- Configure repository permissions
-- Set up webhook for automatic triggers
 
 ## 🔄 Pipeline Workflow
 
@@ -176,58 +138,28 @@ sequenceDiagram
 ### Real-time Pipeline Monitoring
 
 **📸 Screenshot Placeholder: Pipeline Execution**
-> *[Insert screenshot of CodePipeline execution in progress]*
+![Pipeline Execution](screenshots/09-pipeline-execution-success.png)
 
 ## 📸 Screenshots
 
 ### Development Environment
-**📸 Screenshot Placeholder: VS Code Setup**
-> *[Insert screenshot of VS Code with your project open]*
+**📸 Screenshot Placeholder: VS Code Terminal**
+![VS Code Terminal](screenshots/10.update-push.png)
 
 ### Pipeline Dashboard
 **📸 Screenshot Placeholder: CodePipeline Dashboard**
-> *[Insert screenshot of successful pipeline execution]*
+![CodePipeine Dashboard](screenshots/03-codebuild-project-setup.png)
 
-### Build Logs
-**📸 Screenshot Placeholder: CodeBuild Logs**
-> *[Insert screenshot of build logs showing successful compilation]*
 
-### Live Website
+### Live Website before any changes
 **📸 Screenshot Placeholder: S3 Hosted Website**
-> *[Insert screenshot of your live website]*
+![website ](screenshots/10-live demo.png)
 
-## 🎬 Demo Video
 
-**🎥 Screen Recording Placeholder**
-> *[Insert link to screen recording showing:]*
-> - *Code changes in VS Code*
-> - *Git commit and push process*
-> - *Pipeline automatic triggering*
-> - *Build process execution*
-> - *Live website update*
+### Live Website after changes
+**📸 Screenshot Placeholder: S3 Hosted Website**
+![website](screenshots/11-live demo2.png)
 
-**Example:**
-```markdown
-[![Demo Video](https://img.youtube.com/vi/YOUR_VIDEO_ID/0.jpg)](https://www.youtube.com/watch?v=YOUR_VIDEO_ID)
-```
-
-## 📁 Project Structure
-
-```
-cicd-pipeline-demo/
-├── 📄 README.md                 # This documentation
-├── 📄 buildspec.yml            # CodeBuild configuration
-├── 📄 index.html               # Main HTML file
-├── 📁 css/
-│   └── 📄 style.css           # Stylesheet
-├── 📁 js/
-│   └── 📄 script.js           # JavaScript files
-├── 📁 images/
-│   └── 🖼️ assets              # Image assets
-├── 📁 docs/
-│   └── 📸 screenshots/        # Documentation images
-└── 📄 .gitignore              # Git ignore rules
-```
 
 ## ⚙️ Pipeline Configuration
 
@@ -253,7 +185,7 @@ cicd-pipeline-demo/
                 "s3:GetObject",
                 "s3:DeleteObject"
             ],
-            "Resource": "arn:aws:s3:::your-bucket-name/*"
+            "Resource": "arn:aws:s3:::my-cicd-web-app-hosting/*"
         }
     ]
 }
@@ -269,16 +201,7 @@ cicd-pipeline-demo/
 6. **S3 Deployment**: Upload to S3 bucket
 7. **Cache Invalidation**: Clear CDN cache (if using CloudFront)
 
-## 🐛 Troubleshooting
 
-### Common Issues and Solutions
-
-| Issue | Cause | Solution |
-|-------|-------|----------|
-| **Pipeline fails at Build** | Permission errors | Check CodeBuild IAM role permissions |
-| **403 Forbidden on website** | S3 bucket policy | Update bucket policy for public access |
-| **Pipeline not triggering** | GitHub webhook issues | Verify AWS Connector installation |
-| **Build succeeds but no deployment** | Artifact configuration | Check buildspec.yml artifacts section |
 
 ### Debug Commands
 
@@ -313,21 +236,8 @@ aws s3 ls s3://your-bucket-name
 - ✅ Monitor build minutes usage
 - ✅ Regular pipeline performance reviews
 
-## 💰 Cost Optimization
 
-### AWS Service Costs
-- **CodePipeline**: $1/month per active pipeline
-- **CodeBuild**: $0.005/minute (first 100 minutes free monthly)
-- **S3**: $0.023/GB storage + data transfer costs
-- **CloudWatch**: Minimal logging costs
-
-### Cost Reduction Tips
-1. Use S3 Intelligent Tiering
-2. Set up lifecycle policies for build artifacts
-3. Monitor and optimize build times
-4. Use CloudFront for reduced S3 data transfer costs
-
-## 🔮 Future Enhancements
+##  Future Enhancements
 
 - [ ] **Multi-environment deployments** (dev, staging, prod)
 - [ ] **Blue-green deployment strategy**
@@ -340,24 +250,12 @@ aws s3 ls s3://your-bucket-name
 ## 🤝 Contributing
 
 1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
 3. Commit your changes (`git commit -m 'Add amazing feature'`)
 4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
 
-## 📞 Support
 
-If you encounter any issues or have questions:
 
-- 📧 **Email**: your.email@example.com
-- 🐛 **Issues**: [GitHub Issues](https://github.com/yourusername/your-repo/issues)
-- 💬 **Discussions**: [GitHub Discussions](https://github.com/yourusername/your-repo/discussions)
-
-## 📜 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
+- 📧 **Email**: samudinirupasinha@gmail.com.com
 
 ## 🙏 Acknowledgments
 
@@ -367,8 +265,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-**⭐ If this project helped you, please give it a star on GitHub!**
-
----
-
-*Last updated: June 2025*
