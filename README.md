@@ -22,24 +22,6 @@ This project demonstrates a **fully automated CI/CD pipeline** that:
 - **Security**: IAM roles with least privilege access
 - **Cost-Effective**: Pay-per-use AWS services
 
-##  Architecture
-
-```mermaid
-graph LR
-    A[👨‍💻 Developer] --> B[📝 VS Code]
-    B --> C[🔄 Git Commit]
-    C --> D[📚 GitHub Repository]
-    D --> E[🔗 AWS CodePipeline]
-    E --> F[🔨 AWS CodeBuild]
-    F --> G[🪣 S3 Bucket]
-    G --> H[🌐 Static Website]
-    
-    style A fill:#e1f5fe
-    style E fill:#fff3e0
-    style F fill:#fff3e0
-    style G fill:#e8f5e8
-    style H fill:#f3e5f5
-```
 
 ### Pipeline Stages
 
@@ -69,7 +51,7 @@ Before setting up this pipeline, ensure you have:
 - [x] **AWS CLI** configured (optional but recommended)
 - [x] **Node.js** (if using npm packages)
 
-## 🚀 Setup Guide
+## Setup Guide
 
 ### Repository Setup
 
@@ -88,7 +70,7 @@ code .
 ### AWS S3 Configuration
 
 **📸 Screenshot Placeholder: S3 Bucket Creation**
-![S3 Bucket Creation](screenshots/01-s3-bucket.png)
++ ![S3 Bucket Creation](screenshots/01-s3-bucket.png)
 
 
 1. Create S3 bucket with unique name
@@ -99,7 +81,7 @@ code .
 ### Step 3: AWS CodeBuild Project
 
 **📸 Screenshot Placeholder: CodeBuild Project Setup**
-![Codebuild Project](screenshots/03-codebuild-project-setup.png)
++ ![Codebuild Project](screenshots/03-codebuild-project-setup.png)
 
 
 Create `buildspec.yml` in your repository root:
@@ -133,7 +115,7 @@ artifacts:
 ### AWS CodePipeline Setup
 
 **📸 Screenshot Placeholder: CodePipeline Configuration**
-![Codepipeline](screenshots/07-codebuild-page.png)
++ ![Codepipeline](screenshots/07-codebuild-page.png)
 
 1. **Source Stage**: Connect to GitHub repository
 2. **Build Stage**: Link to CodeBuild project
@@ -166,22 +148,22 @@ sequenceDiagram
 ### Real-time Pipeline Monitoring
 
 **📸 Screenshot Placeholder: Pipeline Execution**
-![Pipeline Execution](screenshots/09-pipeline-execution-success.png)
++ ![Pipeline Execution](screenshots/09-pipeline-execution-success.png)
 
 ## 📸 Screenshots
 
 ### Development Environment
 **📸 Screenshot Placeholder: VS Code Terminal**
-![VS Code terminal](screenshots/10-update-push.png)
++ ![VS Code terminal](screenshots/10-update-push.png)
 
 
 ### Live Website
 **📸 Screenshot Placeholder: Live Web app before any changes**
-![live demo](screenshots/10-live demo.png)
++ ![live demo](screenshots/10-live-demo.png)
 
 ### Live Website
 **📸 Screenshot Placeholder: Live Web app after changes**
-![live demo](screenshots/11-live demo2.png)
++ ![live demo](screenshots/11-live-demo2.png)
 
 ## Pipeline Configuration
 
