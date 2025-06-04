@@ -22,6 +22,22 @@ This project demonstrates a **fully automated CI/CD pipeline** that:
 - **Security**: IAM roles with least privilege access
 - **Cost-Effective**: Pay-per-use AWS services
 
+Architecture
+mermaidgraph LR
+    A[👨‍💻 Developer] --> B[📝 VS Code]
+    B --> C[🔄 Git Commit]
+    C --> D[📚 GitHub Repository]
+    D --> E[🔗 AWS CodePipeline]
+    E --> F[🔨 AWS CodeBuild]
+    F --> G[🪣 S3 Bucket]
+    G --> H[🌐 Static Website]
+    
+    style A fill:#e1f5fe
+    style E fill:#fff3e0
+    style F fill:#fff3e0
+    style G fill:#e8f5e8
+    style H fill:#f3e5f5
+
 
 ### Pipeline Stages
 
@@ -69,7 +85,7 @@ code .
 
 ### AWS S3 Configuration
 
-**📸 Screenshot Placeholder: S3 Bucket Creation**
+**📸S3 Bucket Creation**
 + ![S3 Bucket Creation](Screenshots/01-s3-bucket.png)
 
 
@@ -80,7 +96,7 @@ code .
 
 ### Step 3: AWS CodeBuild Project
 
-**📸 Screenshot Placeholder: CodeBuild Project Setup**
+**📸 CodeBuild Project Setup**
 + ![Codebuild Project](Screenshots/03-codebuild-project-setup.png)
 
 
@@ -114,7 +130,7 @@ artifacts:
 
 ### AWS CodePipeline Setup
 
-**📸 Screenshot Placeholder: CodePipeline Configuration**
+**📸 CodePipeline Configuration**
 + ![Codepipeline](Screenshots/07-codebuild-page.png)
 
 1. **Source Stage**: Connect to GitHub repository
@@ -147,22 +163,22 @@ sequenceDiagram
 
 ### Real-time Pipeline Monitoring
 
-**📸 Screenshot Placeholder: Pipeline Execution**
+**📸 Pipeline Execution**
 + ![Pipeline Execution](Screenshots/09-pipeline-execution-success.png)
 
 ## 📸 Screenshots
 
 ### Development Environment
-**📸 Screenshot Placeholder: VS Code Terminal**
-+ ![VS Code terminal](Screenshots/10-update-push.png)
+**📸 VS Code Terminal**
++ ![VS Code terminal](Screenshots/10.update-push.png)
 
 
 ### Live Website
-**📸 Screenshot Placeholder: Live Web app before any changes**
+**📸 Live Web app before any changes**
 + ![live demo](Screenshots/10-live-demo.png)
 
 ### Live Website
-**📸 Screenshot Placeholder: Live Web app after changes**
+**📸 Live Web app after changes**
 + ![live demo](Screenshots/11-live-demo2.png)
 
 ## Pipeline Configuration
