@@ -2,6 +2,8 @@
 
 > **A complete CI/CD pipeline showcasing modern DevOps practices with AWS services, automatic deployments, and zero-downtime updates.**
 
++ ![Diagram](Screenshots/diagram.png)
+
 
 ##  Overview
 
