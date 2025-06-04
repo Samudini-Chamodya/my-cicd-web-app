@@ -22,8 +22,8 @@ This project demonstrates a **fully automated CI/CD pipeline** that:
 - **Security**: IAM roles with least privilege access
 - **Cost-Effective**: Pay-per-use AWS services
 
-Architecture
-mermaidgraph LR
+🏗️ Architecture
+graph LR
     A[👨‍💻 Developer] --> B[📝 VS Code]
     B --> C[🔄 Git Commit]
     C --> D[📚 GitHub Repository]
@@ -37,7 +37,6 @@ mermaidgraph LR
     style F fill:#fff3e0
     style G fill:#e8f5e8
     style H fill:#f3e5f5
-
 
 ### Pipeline Stages
 
