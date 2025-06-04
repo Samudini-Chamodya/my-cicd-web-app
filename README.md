@@ -22,21 +22,35 @@ This project demonstrates a **fully automated CI/CD pipeline** that:
 - **Security**: IAM roles with least privilege access
 - **Cost-Effective**: Pay-per-use AWS services
 
-🏗️ Architecture
-graph LR
-    A[👨‍💻 Developer] --> B[📝 VS Code]
-    B --> C[🔄 Git Commit]
-    C --> D[📚 GitHub Repository]
-    D --> E[🔗 AWS CodePipeline]
-    E --> F[🔨 AWS CodeBuild]
-    F --> G[🪣 S3 Bucket]
-    G --> H[🌐 Static Website]
+### Architecture
+graph TB
+    subgraph "Development"
+        A[👨‍💻 Developer] --> B[💻 VS Code]
+        B --> C[🔄 Git Commit]
+    end
     
-    style A fill:#e1f5fe
-    style E fill:#fff3e0
+    subgraph "Source Control"
+        C --> D[📚 GitHub Repository]
+        D --> E[🎣 Webhook]
+    end
+    
+    subgraph "AWS CI/CD Pipeline"
+        E --> F[🔗 AWS CodePipeline]
+        F --> G[🔨 AWS CodeBuild]
+        G --> H[📦 Build Artifacts]
+        H --> I[🪣 S3 Bucket]
+    end
+    
+    subgraph "Production"
+        I --> J[🌐 Static Website]
+        J --> K[👥 End Users]
+    end
+    
+    style A fill:#e3f2fd
     style F fill:#fff3e0
-    style G fill:#e8f5e8
-    style H fill:#f3e5f5
+    style G fill:#fff3e0
+    style I fill:#e8f5e8
+    style J fill:#f3e5f5
 
 ### Pipeline Stages
 
